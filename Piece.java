@@ -51,6 +51,6 @@ public class Piece {
 		this.canMove = canMove;
 	}
 	public boolean getCanMove(){
-		return canMove();
+		return canMove;
 	}
 }
