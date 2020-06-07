@@ -45,4 +45,7 @@ public class Player{
 	public Piece getPiece(){
 		return piece;
 	}
+	public String getName(){
+		return this.name;
+	}
 }

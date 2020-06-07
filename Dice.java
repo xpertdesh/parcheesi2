@@ -13,7 +13,7 @@ public class Dice{
     
     static int rollDice(){
         Random random = new Random();
-        return random.nextInt(6);
+        return random.nextInt(6) + 1;
     }
 
     
