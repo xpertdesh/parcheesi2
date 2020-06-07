@@ -8,6 +8,7 @@ public class Main{
 		Scanner input = new Scanner(System.in);
 		int numPlayers = -1;
 		boolean validNum = false;
+
 		while(validNum == false){
 			try{
 				System.out.println("Enter a number between 1-4: ");
@@ -27,15 +28,21 @@ public class Main{
 				validNum = false;
 			}
 		}
+
+
 		System.out.println("Excellent! There will be " + numPlayers + " playing today!");
 		ArrayList<Player> playerNames = new ArrayList<Player>();
 		String trash = input.nextLine();
+
+
 		for(int i = 0; i < numPlayers; i++){
 			System.out.println("Please enter the name of player " + (i+1) + ": ");
 			String name = input.nextLine();
 			Player currentPlayer = new Player(name, (i+1));
 			playerNames.add(currentPlayer);
 		}
+
+
 		System.out.println("Good luck! Let the game begin!");
 		Board board = Board.getInstance();
 		board.setPlayers(playerNames);
