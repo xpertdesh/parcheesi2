@@ -21,14 +21,15 @@ public class Board{
         Dice dice = Dice.getInstance();
         boolean winner = false;        
 
-        while (winner) {
+        while (winner == false) {
 
             for (int i = 0; i < players.size(); i++) {
                 Player current = players.get(i);
                 int roll = dice.rollDice();
 
-                current.getPiece(0).setLocation(roll);
-                current.getPiece(0).setSpacesTraveled(roll);
+                current.getPiece().setLocation(roll);
+                current.getPiece().setSpacesTraveled(roll);
+				current.showState();
                 winner = current.getPiecesState();
             }
         }

@@ -46,6 +46,8 @@ public class Main{
 		System.out.println("Good luck! Let the game begin!");
 		Board board = Board.getInstance();
 		board.setPlayers(playerNames);
+
+		board.runGame();
 	}
 }
 
