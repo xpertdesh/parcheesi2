@@ -37,6 +37,9 @@ public class Player{
 
         return false;
     }
+	public Piece getPiece(int num){
+		return pieces.get(num);
+	}
 
 
 }
