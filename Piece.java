@@ -32,8 +32,11 @@ public class Piece {
 		return this.location;
 	}
 	
-	public void setLocation(int location) {
-		this.location = location;
+	public void setLocation(int spaces) {
+		this.location += spaces;
+		if (this.location > 64) {
+			this.location = this.location - 64;
+		}
 	}
 	
 	public int getSpacesTraveled() {
