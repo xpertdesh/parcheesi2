@@ -28,19 +28,19 @@ public class Piece {
 		this.spacesTraveled = 0;	
 	}
 	
-	public getLocation() {
+	public int getLocation() {
 		return this.location;
 	}
 	
-	public setLocation(int location) {
+	public void setLocation(int location) {
 		this.location = location;
 	}
 	
-	public getSpacesTraveled() {
+	public int getSpacesTraveled() {
 		return this.spacesTraveled;
 	}
 	
-	public setSpacesTraveled(int spaces) {
+	public void setSpacesTraveled(int spaces) {
 		this.spacesTraveled += spaces;
 	}
 }

@@ -28,14 +28,17 @@ public class Main{
 			}
 		}
 		System.out.println("Excellent! There will be " + numPlayers + " playing today!");
-		ArrayList<String> playerNames = new ArrayList<String>();
+		ArrayList<Player> playerNames = new ArrayList<Player>();
 		String trash = input.nextLine();
 		for(int i = 0; i < numPlayers; i++){
 			System.out.println("Please enter the name of player " + (i+1) + ": ");
 			String name = input.nextLine();
-			playerNames.add(name);
+			Player currentPlayer = new Player(name, (i+1));
+			playerNames.add(currentPlayer);
 		}
 		System.out.println("Good luck! Let the game begin!");
+		Board board = Board.getInstance();
+		board.setPlayers(playerNames);
 	}
 }
 
