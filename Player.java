@@ -28,7 +28,7 @@ public class Player{
 
         for(int i=0; i<pieces.size(); i++){
             int num = pieces.get(i).getSpacesTravelled();
-            if(num > 95 || (num % 100) == 5)
+            if(num > 95 && (num % 100) == 5)
                     counter++;
         }
         
