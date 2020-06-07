@@ -33,6 +33,15 @@ public class Player{
 			return false;
 		}
 	}
+	
+	public boolean madeIt() {
+		int num = piece.getSpacesTraveled();
+		if (num >= 64) {
+			return true;
+		}
+		return false;
+	}
+	
 	public Piece getPiece(){
 		return piece;
 	}

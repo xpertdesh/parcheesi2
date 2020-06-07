@@ -30,7 +30,8 @@ public class Board{
                 current.getPiece().setLocation(roll);
                 current.getPiece().setSpacesTraveled(roll);
 				current.showState();
-                winner = current.getPiecesState();
+                //winner = current.getPiecesState();
+                winner = current.madeIt();
             }
         }
     }
