@@ -17,16 +17,20 @@ public class Board{
 		this.players = players;
 	}
 	
-	/*boolean winner = false;
-	Dice dice = new Dice();
+	boolean winner = false;
+	Dice dice = Dice.getInstance();
 	
-	while (winner != true) {
+	while (winner) {
+            
 		for (int i = 0; i < players.size(); i++) {
+            Player current = player.get(i);
 			int roll = dice.rollDice();
-			players.get(i).setLocation(roll);
-			players.get(i).setSpacesTraveled(roll);
+            
+			current.setLocation(roll);
+			current.setSpacesTraveled(roll);
+            winnner = current.getPiecesState();
 		}
 	}
-	* */
+	
 }
 
