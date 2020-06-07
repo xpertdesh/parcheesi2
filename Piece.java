@@ -2,7 +2,7 @@ public class Piece {
 	
 	private int location;
 	private int spacesTraveled;
-	
+	private boolean canMove;
 	public Piece(int playerNum) {
 		switch (playerNum) {
 			// set player ones location
@@ -26,6 +26,7 @@ public class Piece {
 			break;
 		}
 		this.spacesTraveled = 0;	
+		this.canMove = false;
 	}
 	
 	public int getLocation() {
@@ -45,5 +46,11 @@ public class Piece {
 	
 	public void setSpacesTraveled(int spaces) {
 		this.spacesTraveled += spaces;
+	}
+	public void setCanMove(boolean canMove){
+		this.canMove = canMove;
+	}
+	public boolean getCanMove(){
+		return canMove();
 	}
 }
