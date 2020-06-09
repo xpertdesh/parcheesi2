@@ -1,51 +1,71 @@
 import java.util.ArrayList;
+import java.util.Random;
 public class Player{
 
 	private String name;
-	//private ArrayList<Piece> pieces;
-	private Piece piece;
+	private ArrayList<Piece> pieces;
+    private final int numPieces = 2;
+
 
 	public Player(String name, int place){
 		this.name = name;
-		//pieces
-		piece = new Piece(place);
+		pieces = new ArrayList<Piece>(numPieces);
+        
+        for(int i=0; i<numPieces; i++){
+            pieces.add(new Piece(place));
+        }
 	}
 
 
-
+    //shows player's progress
 	public void showState(){
-		System.out.println(name + "'s pieces:");
-		//for(int i=0; i<pieces.size(); i++){
-		// System.out.println("Piece " + (i+1) + " is at location "
-		//+ pieces.get(i).getLocation());
-		System.out.println("Piece is at location " + piece.getLocation());
+		System.out.println("\n" + name + "'s pieces:");
+
+		for(int i=0; i<numPieces; i++){
+		 System.out.println("Piece " + (i+1) + " is at location "
+		 + pieces.get(i).getLocation());
+        }
+        System.out.print("\n");
 	}
-	public boolean getPiecesState(){
-		int counter = 0;
-		int num = piece.getSpacesTraveled();
-		if(num > 95 && (num % 100) == 5){
-			counter++;
-		}
-		if(counter == 1){
-			return true;
-		}
-		else{
-			return false;
-		}
-	}
-	
+
+    
+    //checks if all pieces have finished a lap	
 	public boolean madeIt() {
-		int num = piece.getSpacesTraveled();
-		if (num >= 64) {
+		int num = 0;
+        int counter = 0;
+        for(int i=0; i<numPieces; i++){
+            num = pieces.get(i).getSpacesTraveled();
+            if(num >= 64){
+                counter++;
+            }
+        }
+        
+		if (counter == numPieces) {
 			return true;
 		}
+
 		return false;
 	}
+
 	
+    //finds the first piece on the ArrayList
+    //that hasn't finished a lap
 	public Piece getPiece(){
-		return piece;
+        for(int i=0; i<numPieces; i++){
+            Piece current = pieces.get(i);
+            if(current.getSpacesTraveled() < 64){
+                return current;
+            }
+        }
+        //should never get to here
+		return null; 
 	}
+
+
 	public String getName(){
 		return this.name;
 	}
+
+
+
 }

@@ -4,18 +4,23 @@ public class Board{
 
 	private ArrayList<Player> players;
 	private static Board theBoard;
-	public Board(){
 
-	}
+	private Board(){}
+
 	public static Board getInstance(){
 		if(theBoard == null){
 			theBoard = new Board();
 		}
 		return theBoard;
 	}
+
+
+
 	public void setPlayers(ArrayList<Player> players){
 		this.players = players;
 	}
+
+
 
 	public void runGame(){
 		Dice dice = Dice.getInstance();
@@ -28,24 +33,34 @@ public class Board{
 				if(winner == false){
 					int roll = dice.rollDice();
 
-					if(players.get(i).getPiece().getCanMove() == false){
+					if(current.getPiece().getCanMove() == false){
 						if (roll == 5){
-							System.out.println("Congratulations " + players.get(i).getName() + ", you can move forward with your next roll!");
-							players.get(i).getPiece().setCanMove(true);
+							System.out.println("Congratulations " + current.getName() + ", you can move forward with your next roll!\n");
+							current.getPiece().setCanMove(true);
 						}
 						else{
-							System.out.println("Sorry but you need to roll a 5 before you can move");
+					        System.out.println("Sorry " + current.getName() + " but you need to roll a 5 before you can move");
 						}
 					}
 					else{
 						current.getPiece().setLocation(roll);
 						current.getPiece().setSpacesTraveled(roll);
 						current.showState();
-						//winner = current.getPiecesState();
 						winner = current.madeIt();
 					}
 				}
 			}
 		}
-	}
+
+
+	}//end runGame()
+
+
+
+
+
+
+
+
+
 }
