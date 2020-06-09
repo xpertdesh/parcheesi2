@@ -6,8 +6,9 @@ public class Dice{
     private Dice(){}
 
     public static Dice getInstance(){
-        if(INSTANCE == null)
+        if(INSTANCE == null){
             INSTANCE = new Dice();
+        }
         return INSTANCE;
     }
     
