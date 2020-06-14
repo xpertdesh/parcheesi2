@@ -7,9 +7,10 @@ public class Tyler extends Player{
 		super(name, place);
 	}
 	@Override
-	public void movePiece(int roll){
+	public int movePiece(int roll){
 		this.getPiece().setLocation(roll);
 		this.getPiece().setSpacesTraveled(roll);
+		return 1;
 	}
 }
 
