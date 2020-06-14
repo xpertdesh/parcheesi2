@@ -38,9 +38,17 @@ public class Main{
 		for(int i = 0; i < numPlayers; i++){
 			System.out.println("Please enter the name of PLAYER " + (i+1) + ": ");
 			String name = input.nextLine();
+			//Player currentPlayer = new Player(name, place);
             System.out.print("\n");
-			Player currentPlayer = new Player(name, (i+1));
-			playerNames.add(currentPlayer);
+			if(name.equals("Tyler")){
+				playerNames.add(new Tyler(name, (i+1)));
+			}
+			else if(name.equals("Andres")){
+				//playerNames.add(new Andre(name, (i+1)));
+			}
+			else if(name.equals("Zach")){
+				//playerNames.add(new Zach(name, (i+1)));
+			}
 		}
 
         //create new game and add players to it

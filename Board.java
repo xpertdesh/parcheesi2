@@ -43,8 +43,7 @@ public class Board{
 						}
 					}
 					else{
-						current.getPiece().setLocation(roll);
-						current.getPiece().setSpacesTraveled(roll);
+						current.movePiece(roll);
 						current.showState();
 						winner = current.madeIt();
 					}

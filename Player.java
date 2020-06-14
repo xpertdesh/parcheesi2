@@ -65,7 +65,10 @@ public class Player{
 	public String getName(){
 		return this.name;
 	}
-
+	public void movePiece(int roll){
+		this.getPiece().setLocation(roll);
+		this.getPiece().setSpacesTraveled(roll);
+	}
 
 
 }
