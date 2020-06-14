@@ -3,8 +3,12 @@ public class Piece {
 	private int location;
 	private int spacesTraveled;
 	private boolean canMove;
+<<<<<<< HEAD
 	private int startingLocation;
 	private int playerNum;
+=======
+	private int startingLocation = 0;
+>>>>>>> 038f016ac00a957f4e9b78b4474d59a26ead38dd
 
 	public Piece(int playerNum) {
 		this.playerNum = playerNum;
