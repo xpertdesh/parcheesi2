@@ -3,6 +3,7 @@ import java.util.Random;
 public class Player{
 
 	private String name;
+	private int place;
 	private ArrayList<Piece> pieces;
     private final int numPieces = 2;
 	private final int startingLocation;
@@ -10,6 +11,7 @@ public class Player{
 
 	public Player(String name, int place){
 		this.name = name;
+		this.place = place;
 		pieces = new ArrayList<Piece>(numPieces);
         
         for(int i=0; i<numPieces; i++){
@@ -29,7 +31,10 @@ public class Player{
 		}
 	}
 
-
+	public int getNumPieces() {
+		return pieces.size();
+	}
+	
     //shows player's progress
 	public void showState(){
 		System.out.println("\n" + name + "'s pieces:");
@@ -80,6 +85,9 @@ public class Player{
 
 	public String getName(){
 		return this.name;
+	}
+	public int getPlace(){
+		return this.place;
 	}
 	public int movePiece(int roll){
 		this.getPiece().setLocation(roll);

@@ -3,9 +3,11 @@ public class Piece {
 	private int location;
 	private int spacesTraveled;
 	private boolean canMove;
-	private  int startingLocation;
+	private int startingLocation;
+	private int playerNum;
 
 	public Piece(int playerNum) {
+		this.playerNum = playerNum;
 		switch (playerNum) {
 			// set player ones location
 			case 1:
@@ -43,11 +45,14 @@ public class Piece {
 		if (spaces == 0){
 			location = startingLocation;
 		}
-		else{
+		else if (this.spacesTraveled <= 64){
 			this.location += spaces;
 			if (this.location > 64) {
 				this.location = this.location - 64;
 			}
+		}
+		else {
+			this.location = this.playerNum * 100;
 		}
 	}
 
