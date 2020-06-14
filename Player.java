@@ -5,6 +5,7 @@ public class Player{
 	private String name;
 	private ArrayList<Piece> pieces;
     private final int numPieces = 2;
+	private final int startingLocation;
 
 
 	public Player(String name, int place){
@@ -14,6 +15,18 @@ public class Player{
         for(int i=0; i<numPieces; i++){
             pieces.add(new Piece(place));
         }
+		if (place == 1){
+			startingLocation = 1;
+		}
+		else if (place == 2){
+			startingLocation = 17;
+		}
+		else if (place == 3){
+			startingLocation = 33;
+		}
+		else{
+			startingLocation = 49;
+		}
 	}
 
 
@@ -60,15 +73,20 @@ public class Player{
         //should never get to here
 		return null; 
 	}
+	public Piece getPiece(int pieceNum){
+		return pieces.get(pieceNum);
+	}
 
 
 	public String getName(){
 		return this.name;
 	}
-	public void movePiece(int roll){
+	public int movePiece(int roll){
 		this.getPiece().setLocation(roll);
 		this.getPiece().setSpacesTraveled(roll);
+		return 1;
 	}
-
-
+	public int getStartingLocation(){
+		return this.startingLocation;
+	}
 }

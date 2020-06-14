@@ -43,7 +43,21 @@ public class Board{
 						}
 					}
 					else{
-						current.movePiece(roll);
+						int pieceMoved = current.movePiece(roll);
+						for (int j = 0; j < players.size(); j++){
+							for (int h = 0; h < 2; h++){
+								if (j == i){
+								}
+								else{
+									if (current.getPiece(pieceMoved).getLocation() == players.get(j).getPiece(h).getLocation()){
+										System.out.println(current.getName() + " ran into " + players.get(j).getName() + " piece number " + h + ".");
+										System.out.println(players.get(j).getName() + " piece will be moved back to his starting position of " + players.get(j).getStartingLocation());
+										players.get(j).getPiece(h).setLocation(0);
+										players.get(j).getPiece(h).setSpacesTraveled(0);
+									}
+								}
+							}
+						}		
 						current.showState();
 						winner = current.madeIt();
 					}
@@ -53,13 +67,4 @@ public class Board{
 
 
 	}//end runGame()
-
-
-
-
-
-
-
-
-
 }
