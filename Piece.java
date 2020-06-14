@@ -3,7 +3,7 @@ public class Piece {
 	private int location;
 	private int spacesTraveled;
 	private boolean canMove;
-	private  int startingLocation;
+	private int startingLocation = 0;
 
 	public Piece(int playerNum) {
 		switch (playerNum) {
