@@ -48,7 +48,7 @@ public class Main{
 				playerNames.add(new Tyler(name, (i+1)));
 			}
 			else if(name.equals("Andres")){
-				//playerNames.add(new Andre(name, (i+1)));
+				playerNames.add(new Andres(name, (i+1)));
 			}
 			else if(name.equals("Zach")){
 				playerNames.add(new Zach(name, (i+1)));

@@ -40,10 +40,13 @@ public class Player{
 		System.out.println("\n" + name + "'s pieces:");
 
 		for(int i=0; i< pieces.size(); i++){
-		 System.out.println("Piece " + (i+1) + " is at location " + pieces.get(i).getLocation() + " and has moved " + pieces.get(i).getSpacesTraveled() + " spaces.");
+		 System.out.println("Piece " + (i+1) + " is at location " +
+         pieces.get(i).getLocation() + " and has moved " +
+         pieces.get(i).getSpacesTraveled() + " spaces.");
         }
         System.out.print("\n");
 	}
+
 	public ArrayList<Piece> getPiecesList(){
 		return this.pieces;
 	}
