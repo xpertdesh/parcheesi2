@@ -1,7 +1,11 @@
 import java.util.*;
 import java.lang.*;
+
+
 public class Main{
 	public static void main (String[] args){
+		MultiClientServer ourServer = new MultiClientServer();
+		System.out.println("Name from the socket is " + ourServer.getName());
 		System.out.println("Hello! Welcome to Parchessi!");
 		System.out.println("How many players will be playing today?i\n");
 
@@ -9,7 +13,7 @@ public class Main{
 		int numPlayers = -1;
 		boolean validNum = false;
 
-        //check the number of players
+		//check the number of players
 		while(validNum == false){
 			try{
 				System.out.println("Enter a number between 1-4: ");
@@ -29,17 +33,17 @@ public class Main{
 			}
 		}
 
-        
+
 		System.out.println("\nExcellent! There will be " + numPlayers + " playing today!");
 		ArrayList<Player> playerNames = new ArrayList<Player>();
 		String trash = input.nextLine();
 
-        //get the name of players
+		//get the name of players
 		for(int i = 0; i < numPlayers; i++){
 			System.out.println("Please enter the name of PLAYER " + (i+1) + ": ");
 			String name = input.nextLine();
 			//Player currentPlayer = new Player(name, place);
-            System.out.print("\n");
+			System.out.print("\n");
 			if(name.equals("Tyler")){
 				playerNames.add(new Tyler(name, (i+1)));
 			}
@@ -51,12 +55,12 @@ public class Main{
 			}
 		}
 
-        //create new game and add players to it
+		//create new game and add players to it
 		System.out.println("Good luck! Let the game begin!\n");
 		Board board = Board.getInstance();
 		board.setPlayers(playerNames);
 
-        //start game
+		//start game
 		board.runGame();
 	}
 }

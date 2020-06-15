@@ -5,40 +5,19 @@ import java.net.Socket;
 import java.util.Scanner;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.io.DataInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 
 public class MultiClientServer {
 
-	public class Connection implements Runnable {
-		
-		public Socket socket;
-		private PrintWriter writer;
-		private Scanner subscriber;
-
-		public Connection(Socket socket) {
-			this.socket = socket;
-		}
-
-		@Override
-		public void run() {
-		
-			try {
-				writer = new PrintWriter(socket.getOutputStream(),true);
-				subscriber = new Scanner(socket.getInputStream());
-				System.out.println("Connection established");
-				writer.println("Argh! I smell pirates!!!");
-			} catch (IOException e) {
-				System.out.println("Failure establishing connection");
-				e.printStackTrace();
-			}
-			while (!socket.isClosed()) {
-				System.out.println(subscriber.nextLine());
-			}
-		}
-	}
-	
+	public Socket socket;
+	private PrintWriter writer;
+	private Scanner subscriber;
 	private boolean hasConnections;
 	public ServerSocket listener;
 	private int port = 6000;
+	String name;
 
 	public MultiClientServer() {
 		this.hasConnections = true;
@@ -50,24 +29,22 @@ public class MultiClientServer {
 				ExecutorService threadPool = Executors.newFixedThreadPool(3);
 				threadPool.execute(new Connection(socket));
 				System.out.println("Connected to a client");
+
+
+				InputStream inputStream = socket.getInputStream();
+				DataInputStream dataInputStream = new DataInputStream(inputStream);
+				name = dataInputStream.readUTF();
+				listener.close();
+
+
 			}
-		} catch (IOException e) {
+		}
+		catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-
-//	public void write(String msg) {
-//		
-//		if (hasConnections) {
-//			System.out.println("Writing data to client");
-//			writer.println(msg);			
-//		} else {
-//			System.out.println("No client to write data");
-//		}
-//	}
-	
-	public static void main(String[] args) {
-		new MultiClientServer();
+	public String getName(){
+		return this.name;
 	}
 }

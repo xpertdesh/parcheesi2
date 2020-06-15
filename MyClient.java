@@ -1,4 +1,5 @@
-
+import java.io.DataOutputStream;
+import java.io.OutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
@@ -26,18 +27,28 @@ public class MyClient {
 			if (hasConnections) {
 				System.out.println("Connection already established");
 			} else {
-				while (!hasConnections) {
+				//while (!hasConnections) {
 					try {
 						socket = new Socket(serverIp, port);
 						hasConnections = true;
 						listener = new Scanner(socket.getInputStream());
 						publisher = new PrintWriter(socket.getOutputStream(),true);
 						System.out.println("Connection established");
-						while (true) {
-							Thread.sleep(2000);
-							publisher.println("Hi there, my name is " + name);
-						}
-					} catch (IOException e) {
+
+
+						OutputStream outputStream = socket.getOutputStream();
+						DataOutputStream dataOutputStream = new DataOutputStream(outputStream);
+						dataOutputStream.writeUTF(name);
+						dataOutputStream.flush();
+						dataOutputStream.close();
+						socket.close();
+						throw new InterruptedException("Oh no!");
+						//while (true) {
+							//Thread.sleep(2000);
+							//publisher.println("Hi there, my name is " + name);
+						//}
+					}
+					catch (IOException e) {
 						System.out.println("Failure establishing connection on " + serverIp + ":" + port);
 						try {
 							Thread.sleep(1000);
@@ -50,7 +61,7 @@ public class MyClient {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					} 
-				}
+				//}
 				System.out.println("Test message received: " + listener.nextLine());
 				while (!socket.isClosed()) {
 					String data = listener.nextLine();
@@ -71,6 +82,9 @@ public class MyClient {
 		this.hasConnections = false;
 		ExecutorService threadPool = Executors.newFixedThreadPool(1);
 		threadPool.execute(new Connection());
+	}
+	public String getName(){
+		return this.name;
 	}
 	
 	public static void main(String[] args) {
