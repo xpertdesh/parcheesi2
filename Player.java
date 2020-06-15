@@ -39,10 +39,13 @@ public class Player{
 	public void showState(){
 		System.out.println("\n" + name + "'s pieces:");
 
-		for(int i=0; i<numPieces; i++){
+		for(int i=0; i< pieces.size(); i++){
 		 System.out.println("Piece " + (i+1) + " is at location " + pieces.get(i).getLocation() + " and has moved " + pieces.get(i).getSpacesTraveled() + " spaces.");
         }
         System.out.print("\n");
+	}
+	public ArrayList<Piece> getPiecesList(){
+		return this.pieces;
 	}
 
     
@@ -88,7 +91,7 @@ public class Player{
 	public int getPlace(){
 		return this.place;
 	}
-	public int movePiece(int roll){
+	public int movePiece(int roll, ArrayList<Integer> enemyList){
 		this.getPiece().setLocation(roll);
 		this.getPiece().setSpacesTraveled(roll);
 		return 1;

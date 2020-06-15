@@ -3,12 +3,9 @@ public class Piece {
 	private int location;
 	private int spacesTraveled;
 	private boolean canMove;
-<<<<<<< HEAD
-	private int startingLocation;
 	private int playerNum;
-=======
 	private int startingLocation = 0;
->>>>>>> 038f016ac00a957f4e9b78b4474d59a26ead38dd
+	private boolean inSafeSpace;
 
 	public Piece(int playerNum) {
 		this.playerNum = playerNum;
@@ -39,6 +36,13 @@ public class Piece {
 		}
 		this.spacesTraveled = 0;	
 		this.canMove = false;
+		this.inSafeSpace = false;
+	}
+	public boolean getInSafeSpace(){
+		return this.inSafeSpace;
+	}
+	public void setInSafeSpace(boolean inSafeSpace){
+		this.inSafeSpace = inSafeSpace;
 	}
 
 	public int getLocation() {
@@ -49,14 +53,14 @@ public class Piece {
 		if (spaces == 0){
 			location = startingLocation;
 		}
+		else if(spaces >= 100){
+			location = spaces;
+		}
 		else if (this.spacesTraveled <= 64){
 			this.location += spaces;
 			if (this.location > 64) {
 				this.location = this.location - 64;
 			}
-		}
-		else {
-			this.location = this.playerNum * 100;
 		}
 	}
 
