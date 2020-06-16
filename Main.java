@@ -34,10 +34,11 @@ public class Main{
 
 		}
 
-		//manual entrance of names and number of players before sockets
-		//System.out.println("How many players will be playing today?i\n");
 
-		/*
+		//manual entrance of names and number of players before sockets
+        /*
+		System.out.println("How many players will be playing today?i\n");
+		
 		   Scanner input = new Scanner(System.in);
 		   int numPlayers = -1;
 		   boolean validNum = false;
@@ -65,7 +66,6 @@ public class Main{
 
 		//arraylist of all our players
 		ArrayList<Player> playerNames = new ArrayList<Player>();
-		//String trash = input.nextLine();
 
 
 		//get the name of players

@@ -18,7 +18,7 @@ public class MyClient2 {
 	private Socket socket;
 	private String name;
 	
-	public class Connection implements Runnable {
+	private class Connection implements Runnable {
 
 
 		@Override

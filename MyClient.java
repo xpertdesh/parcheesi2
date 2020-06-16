@@ -19,7 +19,7 @@ public class MyClient {
 	private String name;
 	private String name1;
 	
-	public class Connection implements Runnable {
+	private class Connection implements Runnable {
 
 
 		@Override
