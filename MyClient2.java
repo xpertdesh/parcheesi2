@@ -8,7 +8,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 
-public class MyClient {
+public class MyClient2 {
 
 	private boolean hasConnections = false;
 	private String serverIp;
@@ -17,7 +17,6 @@ public class MyClient {
 	private PrintWriter publisher;
 	private Socket socket;
 	private String name;
-	private String name1;
 	
 	public class Connection implements Runnable {
 
@@ -36,13 +35,13 @@ public class MyClient {
 						publisher = new PrintWriter(socket.getOutputStream(),true);
 						System.out.println("Connection established");
 
+
 						OutputStream outputStream = socket.getOutputStream();
 						DataOutputStream dataOutputStream = new DataOutputStream(outputStream);
 						dataOutputStream.writeUTF(name);
 						dataOutputStream.flush();
 						dataOutputStream.close();
 						socket.close();
-						System.exit(1);
 						throw new InterruptedException("Oh no!");
 						//while (true) {
 							//Thread.sleep(2000);
@@ -73,15 +72,13 @@ public class MyClient {
 	}
 
 	
-	public MyClient(String serverIp, int port, String name) {
+	public MyClient2(String serverIp, int port, String name) {
 		this.serverIp = serverIp;
 		this.port = port;
-		if (name == null){
+		if (name == null)
 			this.name = "Bozo";
-		}
-		else{
+		else
 			this.name = name;
-		}
 		this.hasConnections = false;
 		ExecutorService threadPool = Executors.newFixedThreadPool(1);
 		threadPool.execute(new Connection());
@@ -92,7 +89,7 @@ public class MyClient {
 	
 	public static void main(String[] args) {
 		
-		new MyClient("127.0.0.1",6000,args[0]);
+		new MyClient("127.0.0.1",7000,args[0]);
 		try {
 			Thread.currentThread().join();
 		} catch (InterruptedException e) {

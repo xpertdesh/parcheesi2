@@ -5,7 +5,9 @@ import java.lang.*;
 public class Main{
 	public static void main (String[] args){
 		MultiClientServer ourServer = new MultiClientServer();
-		System.out.println("Name from the socket is " + ourServer.getName());
+		MultiClientServer2 ourServer2 = new MultiClientServer2();
+		System.out.println("Name from the 1sr socket is " + ourServer.getName());
+		System.out.println("Name from the 2nd socket is " + ourServer2.getName());
 		System.out.println("Hello! Welcome to Parchessi!");
 		System.out.println("How many players will be playing today?i\n");
 
@@ -64,4 +66,3 @@ public class Main{
 		board.runGame();
 	}
 }
-

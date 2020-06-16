@@ -29,8 +29,10 @@ public class Connection implements Runnable {
 			System.out.println("Failure establishing connection");
 			e.printStackTrace();
 		}
+		/*
 		while (!socket.isClosed()) {
 			System.out.println(subscriber.nextLine());
 		}
+		*/
 	}
 }
