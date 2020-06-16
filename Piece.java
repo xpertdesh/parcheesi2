@@ -1,5 +1,6 @@
 public class Piece {
 
+	//instance variables for dice
 	private int location;
 	private int spacesTraveled;
 	private boolean canMove;
@@ -38,6 +39,7 @@ public class Piece {
 		this.canMove = false;
 		this.inSafeSpace = false;
 	}
+	//get and setters for whether the piece is in the safe zone
 	public boolean getInSafeSpace(){
 		return this.inSafeSpace;
 	}
@@ -45,6 +47,7 @@ public class Piece {
 		this.inSafeSpace = inSafeSpace;
 	}
 
+	//get and set for the piece current location
 	public int getLocation() {
 		return this.location;
 	}
@@ -64,6 +67,7 @@ public class Piece {
 		}
 	}
 
+	//get and set for piece current location
 	public int getSpacesTraveled() {
 		return this.spacesTraveled;
 	}
@@ -77,6 +81,7 @@ public class Piece {
 		}
 	}
 
+	//get and set for whether the piece is still in home or not
 	public void setCanMove(boolean canMove){
 		this.canMove = canMove;
 	}

@@ -7,6 +7,7 @@ public class Tyler extends Player{
 	public Tyler(String name, int place){
 		super(name, place);
 	}
+	//my move piece method
 	@Override
 	public int movePiece(int roll, ArrayList<Integer> enemyList){
 		int newLocation = 0;
