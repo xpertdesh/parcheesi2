@@ -1,1 +1,2 @@
-# parcheesi2
+# Parcheesi
+Text-based multiplayer board game
